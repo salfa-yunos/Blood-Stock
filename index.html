@@ -3,557 +3,472 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blood Stock Poster – Pusat Pendermaan Darah</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Nastaliq+Urdu:wght@400;700&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Blood Stock – Pusat Pendermaan Darah</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
 –red:    #C0182A;
 –red2:   #8B0000;
-–cream:  #FFF8F0;
 –gold:   #E8B84B;
-–dark:   #1A0505;
+–dark:   #120202;
 –white:  #FFFFFF;
 }
 
 body {
-background: #2a2a2a;
+background: #1a1a1a;
+font-family: ‘Poppins’, sans-serif;
 display: flex;
 flex-direction: column;
 align-items: center;
-gap: 20px;
-padding: 30px;
-font-family: ‘Poppins’, sans-serif;
+padding: 16px 12px 32px;
+gap: 14px;
+min-height: 100vh;
 }
 
-h1.ui-title {
-color: #fff;
-font-family: ‘Poppins’, sans-serif;
-font-size: 14px;
-font-weight: 300;
-letter-spacing: 2px;
+.ui-hint {
+color: rgba(255,255,255,0.4);
+font-size: 11px;
+letter-spacing: 1.2px;
 text-transform: uppercase;
-opacity: 0.6;
+text-align: center;
 }
 
 /* ===== POSTER ===== */
 .poster {
-width: 1080px;
-min-height: 1080px;
+width: 100%;
+max-width: 480px;
 background: var(–dark);
-position: relative;
+border-radius: 20px;
 overflow: hidden;
-display: flex;
-flex-direction: column;
+box-shadow: 0 24px 80px rgba(0,0,0,0.7), 0 0 0 1px rgba(255,255,255,0.06);
+position: relative;
 }
-
-/* Decorative background blobs */
 .poster::before {
 content: ‘’;
 position: absolute;
-top: -120px; right: -120px;
-width: 480px; height: 480px;
-background: radial-gradient(circle, rgba(192,24,42,0.45) 0%, transparent 70%);
-pointer-events: none;
+top: -60px; right: -60px;
+width: 240px; height: 240px;
+background: radial-gradient(circle, rgba(192,24,42,0.4) 0%, transparent 70%);
+pointer-events: none; z-index: 0;
 }
 .poster::after {
 content: ‘’;
 position: absolute;
-bottom: 160px; left: -100px;
-width: 360px; height: 360px;
-background: radial-gradient(circle, rgba(139,0,0,0.35) 0%, transparent 70%);
-pointer-events: none;
+bottom: 120px; left: -60px;
+width: 200px; height: 200px;
+background: radial-gradient(circle, rgba(139,0,0,0.3) 0%, transparent 70%);
+pointer-events: none; z-index: 0;
 }
 
-/* ── TOP HEADER ── */
+/* ── HEADER ── */
 .header {
 background: linear-gradient(135deg, var(–red2) 0%, var(–red) 100%);
-padding: 28px 44px 22px;
+padding: 18px 20px 14px;
 display: flex;
 align-items: center;
-gap: 22px;
+gap: 14px;
 position: relative;
 z-index: 2;
 }
-.header-logo {
-flex-shrink: 0;
-display: flex;
-flex-direction: column;
-align-items: center;
-}
-.drop-icon {
-font-size: 48px;
-line-height: 1;
-filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5));
-}
-.header-text {
-flex: 1;
-}
-.arabic-title {
-font-family: ‘Noto Nastaliq Urdu’, serif;
-font-size: 26px;
-color: var(–gold);
-line-height: 1.4;
-direction: rtl;
-text-align: right;
-}
-.malay-title {
+.drop-icon { font-size: 36px; flex-shrink: 0; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
+.header-text { flex: 1; min-width: 0; }
+.org-name {
 font-family: ‘Bebas Neue’, sans-serif;
-font-size: 22px;
-letter-spacing: 2px;
+font-size: 16px;
+letter-spacing: 1.5px;
 color: var(–white);
 line-height: 1.3;
 }
 .ministry {
-font-size: 11px;
-color: rgba(255,255,255,0.75);
+font-size: 9px;
+color: rgba(255,255,255,0.65);
 font-weight: 300;
-letter-spacing: 1px;
+letter-spacing: 0.8px;
 text-transform: uppercase;
 margin-top: 2px;
 }
 
-/* ── HEADLINE BAND ── */
-.headline-band {
+/* ── GOLD BAND ── */
+.gold-band {
 background: var(–gold);
-padding: 10px 44px;
+padding: 8px 20px;
 display: flex;
 align-items: center;
 justify-content: space-between;
-position: relative;
-z-index: 2;
+gap: 8px;
+flex-wrap: wrap;
+position: relative; z-index: 2;
 }
-.headline-band .hl-main {
+.band-title {
 font-family: ‘Bebas Neue’, sans-serif;
-font-size: 28px;
-letter-spacing: 4px;
+font-size: 17px;
+letter-spacing: 3px;
 color: var(–dark);
+white-space: nowrap;
 }
-.headline-band .hl-date {
-font-size: 12px;
-font-weight: 600;
+.band-date {
+font-size: 10px;
+font-weight: 700;
+color: rgba(0,0,0,0.5);
+letter-spacing: 0.5px;
+}
+.band-date span[contenteditable] {
 color: var(–dark);
-opacity: 0.65;
-letter-spacing: 1px;
-}
-/* Editable date */
-[contenteditable] {
-outline: none;
-border-bottom: 1px dashed rgba(255,255,255,0.3);
-cursor: text;
-transition: background 0.2s;
-border-radius: 3px;
+font-weight: 800;
+border-bottom: 1px dashed rgba(0,0,0,0.4);
 padding: 1px 3px;
+border-radius: 3px;
+outline: none;
+cursor: text;
 }
-[contenteditable]:hover, [contenteditable]:focus {
-background: rgba(255,255,255,0.12);
-border-bottom-color: rgba(255,255,255,0.7);
-}
-.headline-band [contenteditable]:hover,
-.headline-band [contenteditable]:focus {
-background: rgba(0,0,0,0.1);
-}
+.band-date span[contenteditable]:focus { background: rgba(0,0,0,0.1); }
 
 /* ── BODY ── */
 .body {
-flex: 1;
-padding: 32px 44px 24px;
-position: relative;
-z-index: 2;
+padding: 18px 16px 14px;
+position: relative; z-index: 2;
 }
 
-/* Blood group grid */
+/* Blood grid – 2 columns */
 .blood-grid {
 display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 14px;
-margin-bottom: 28px;
+grid-template-columns: repeat(2, 1fr);
+gap: 10px;
+margin-bottom: 14px;
 }
 
 .blood-card {
 background: rgba(255,255,255,0.04);
-border: 1px solid rgba(255,255,255,0.08);
-border-radius: 16px;
-padding: 16px 12px 14px;
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 14px;
+padding: 12px 10px 10px;
 text-align: center;
 position: relative;
 overflow: hidden;
-transition: transform 0.2s;
 }
-.blood-card:hover { transform: translateY(-2px); }
 .blood-card::before {
 content: ‘’;
 position: absolute;
 top: 0; left: 0; right: 0;
 height: 3px;
-background: var(–bar-color, var(–red));
+background: var(–bar, var(–red));
 }
-
 .blood-type-label {
 font-family: ‘Bebas Neue’, sans-serif;
 font-size: 38px;
 line-height: 1;
 color: var(–white);
-margin-bottom: 14px;
+margin-bottom: 10px;
 }
-
-/* +/- rows */
 .rh-row {
 display: flex;
 align-items: center;
 justify-content: space-between;
-padding: 6px 8px;
+background: rgba(255,255,255,0.04);
 border-radius: 8px;
-margin-bottom: 6px;
+padding: 5px 8px;
+margin-bottom: 5px;
 }
 .rh-row:last-child { margin-bottom: 0; }
 .rh-label {
-font-size: 13px;
+font-size: 12px;
 font-weight: 700;
-color: rgba(255,255,255,0.5);
-width: 28px;
+color: rgba(255,255,255,0.4);
+width: 26px;
 text-align: left;
 }
 
-/* Status pill */
-.status-pill {
+/* Pill */
+.pill {
 display: inline-flex;
 align-items: center;
-gap: 5px;
+gap: 4px;
 border-radius: 20px;
-padding: 3px 10px;
-font-size: 11px;
+padding: 3px 9px;
+font-size: 10px;
 font-weight: 700;
 letter-spacing: 0.5px;
 text-transform: uppercase;
 cursor: pointer;
 user-select: none;
-transition: filter 0.15s;
+transition: filter 0.15s, transform 0.1s;
 white-space: nowrap;
 }
-.status-pill:hover { filter: brightness(1.15); }
+.pill:active { transform: scale(0.93); }
+.pill.CRITICAL { background:#7B0000; color:#FF9999; border:1px solid #C00; }
+.pill.LOW      { background:#7A3B00; color:#FFB96A; border:1px solid #C06000; }
+.pill.ADEQUATE { background:#0D4A2E; color:#6DFFB0; border:1px solid #1A7A4A; }
+.pill.GOOD     { background:#0A3D5C; color:#7ED8FF; border:1px solid #1566A3; }
+.pill-dot { width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex-shrink:0; }
 
-.status-pill.CRITICAL  { background: #7B0000; color: #FF9999; border: 1px solid #C00; }
-.status-pill.LOW       { background: #7A3B00; color: #FFB96A; border: 1px solid #C06000; }
-.status-pill.ADEQUATE  { background: #0D4A2E; color: #6DFFB0; border: 1px solid #1A7A4A; }
-.status-pill.GOOD      { background: #0A3D5C; color: #7ED8FF; border: 1px solid #1566A3; }
-
-.dot { width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-
-/* ── STATUS LEGEND ── */
+/* Legend */
 .legend {
 display: flex;
-gap: 16px;
 flex-wrap: wrap;
+gap: 6px 12px;
 justify-content: center;
-margin-bottom: 24px;
+margin-bottom: 14px;
 }
 .legend-item {
-display: flex;
-align-items: center;
-gap: 6px;
-font-size: 11px;
-font-weight: 600;
-letter-spacing: 0.5px;
+display: flex; align-items: center; gap: 5px;
+font-size: 9.5px; font-weight: 600;
+color: rgba(255,255,255,0.5);
 }
-.legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+.ldot { width: 8px; height: 8px; border-radius: 50%; }
 
-/* ── HOURS BOX ── */
-.hours-box {
-background: rgba(255,255,255,0.04);
-border: 1px solid rgba(255,255,255,0.1);
-border-left: 4px solid var(–gold);
-border-radius: 12px;
-padding: 18px 24px;
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 12px 24px;
-margin-bottom: 20px;
-}
-.hours-title {
-grid-column: 1 / -1;
+.divider { border: none; border-top: 1px solid rgba(255,255,255,0.07); margin: 12px 0; }
+
+/* Section title */
+.section-title {
 font-family: ‘Bebas Neue’, sans-serif;
-font-size: 16px;
+font-size: 13px;
 letter-spacing: 3px;
 color: var(–gold);
-margin-bottom: 4px;
+margin-bottom: 10px;
 }
-.hours-block { }
-.hours-session {
-font-size: 11px;
+
+/* Hours */
+.hours-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 8px;
+margin-bottom: 10px;
+}
+.hours-card {
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 10px;
+padding: 10px 12px;
+}
+.session-label {
+font-size: 9px;
 font-weight: 600;
-color: rgba(255,255,255,0.45);
 text-transform: uppercase;
 letter-spacing: 1px;
-margin-bottom: 2px;
+color: rgba(255,255,255,0.35);
+margin-bottom: 3px;
 }
-.hours-time {
+.session-time {
 font-family: ‘Bebas Neue’, sans-serif;
-font-size: 22px;
-letter-spacing: 2px;
+font-size: 19px;
+letter-spacing: 1px;
 color: var(–white);
+line-height: 1.2;
 }
-.hours-days {
-font-size: 10px;
-color: rgba(255,255,255,0.5);
-margin-top: 4px;
-line-height: 1.5;
-}
-.hours-days span { color: #FF7070; }
-.bloodkad-note {
-grid-column: 1 / -1;
-background: rgba(232,184,75,0.1);
-border-radius: 8px;
+
+/* Days */
+.days-card {
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.07);
+border-radius: 10px;
 padding: 10px 14px;
-font-size: 12px;
-color: var(–gold);
+margin-bottom: 10px;
+}
+.day-line {
+font-size: 11px;
+color: rgba(255,255,255,0.65);
+padding: 2.5px 0;
 display: flex;
 align-items: center;
-gap: 10px;
-border: 1px solid rgba(232,184,75,0.25);
+gap: 7px;
 }
-.bloodkad-note strong { font-weight: 800; }
+.day-line.closed { color: #FF7070; }
+
+/* Bloodkad */
+.bloodkad-banner {
+background: rgba(232,184,75,0.1);
+border: 1px solid rgba(232,184,75,0.25);
+border-left: 3px solid var(–gold);
+border-radius: 10px;
+padding: 10px 14px;
+display: flex;
+align-items: flex-start;
+gap: 10px;
+}
+.bk-icon { font-size: 22px; flex-shrink: 0; }
+.bk-text { font-size: 11px; color: var(–gold); line-height: 1.6; }
+.bk-text strong { font-weight: 800; font-size: 12px; display: block; margin-bottom: 2px; }
 
 /* ── FOOTER ── */
 .footer {
 background: var(–red);
-padding: 14px 44px;
-display: flex;
-align-items: center;
-justify-content: space-between;
-position: relative;
-z-index: 2;
+padding: 12px 20px;
+position: relative; z-index: 2;
 }
-.footer-contact {
+.footer-contacts {
 display: flex;
-align-items: center;
-gap: 24px;
+justify-content: center;
+gap: 20px;
+flex-wrap: wrap;
+margin-bottom: 6px;
 }
 .footer-item {
-display: flex;
-align-items: center;
-gap: 8px;
-font-size: 13px;
-font-weight: 600;
-color: var(–white);
-letter-spacing: 0.5px;
+display: flex; align-items: center; gap: 6px;
+font-size: 12px; font-weight: 600; color: var(–white);
 }
-.footer-icon { font-size: 18px; }
 .footer-cta {
 font-family: ‘Bebas Neue’, sans-serif;
-font-size: 16px;
-letter-spacing: 3px;
+font-size: 15px;
+letter-spacing: 2.5px;
 color: var(–gold);
+text-align: center;
 }
 
-/* ── INSTRUCTIONS PANEL ── */
+/* ── INSTRUCTIONS ── */
 .instructions {
-background: #fff;
+width: 100%;
+max-width: 480px;
+background: rgba(255,255,255,0.05);
 border-radius: 12px;
-padding: 20px 28px;
-width: 1080px;
-font-size: 13px;
-color: #333;
+padding: 14px 18px;
+font-size: 11.5px;
+color: rgba(255,255,255,0.55);
 line-height: 1.7;
 }
-.instructions h2 { font-size: 15px; color: #C0182A; margin-bottom: 10px; }
-.instructions ul { padding-left: 18px; }
+.instructions h2 { font-size: 11px; color: var(–gold); margin-bottom: 8px; letter-spacing: 1.5px; text-transform: uppercase; }
 .instructions li { margin-bottom: 4px; }
-kbd {
-background: #eee;
-border: 1px solid #ccc;
-border-radius: 4px;
-padding: 1px 6px;
-font-size: 12px;
-font-family: monospace;
-}
+kbd { background: rgba(255,255,255,0.12); border-radius: 4px; padding: 1px 5px; font-size: 10px; font-family: monospace; color: #fff; }
 </style>
 
 </head>
 <body>
 
-<h1 class="ui-title">Click any blood status pill to cycle · Click date/text to edit</h1>
+<p class="ui-hint">Tap any status pill to change · Tap date to edit</p>
 
-<!-- ===== POSTER ===== -->
-
-<div class="poster" id="poster">
-
-  <!-- HEADER -->
+<div class="poster">
 
   <div class="header">
-    <div class="header-logo">
-      <div class="drop-icon">🩸</div>
-    </div>
+    <div class="drop-icon">🩸</div>
     <div class="header-text">
-      <div class="arabic-title">ڤوست ڤندرمأن داره</div>
-      <div class="malay-title">Pusat Pendermaan Darah<br>Jabatan Perkhidmatan Makmal</div>
-      <div class="ministry">Kementerian Kesihatan Brunei Darussalam</div>
+      <div class="org-name">Blood Donation Centre<br>Laboratory Services Department</div>
+      <div class="ministry">Ministry of Health · Brunei Darussalam</div>
     </div>
   </div>
 
-  <!-- HEADLINE BAND -->
-
-  <div class="headline-band">
-    <div class="hl-main">🩸 STOK DARAH SEMASA &nbsp;/&nbsp; CURRENT BLOOD STOCK</div>
-    <div class="hl-date">
-      DIKEMASKINI: <span contenteditable="true" title="Click to edit date">19 April 2025</span>
-    </div>
+  <div class="gold-band">
+    <div class="band-title">🩸 Current Blood Stock</div>
+    <div class="band-date">Updated: <span contenteditable="true">19 April 2025</span></div>
   </div>
-
-  <!-- BODY -->
 
   <div class="body">
 
 ```
-<!-- BLOOD GRID -->
-<div class="blood-grid" id="bloodGrid">
-  <!-- Cards injected by JS -->
-</div>
+<div class="blood-grid" id="bloodGrid"></div>
 
-<!-- LEGEND -->
 <div class="legend">
-  <div class="legend-item"><div class="legend-dot" style="background:#FF9999;"></div><span style="color:rgba(255,255,255,0.7);">KRITIKAL / CRITICAL</span></div>
-  <div class="legend-item"><div class="legend-dot" style="background:#FFB96A;"></div><span style="color:rgba(255,255,255,0.7);">RENDAH / LOW</span></div>
-  <div class="legend-item"><div class="legend-dot" style="background:#6DFFB0;"></div><span style="color:rgba(255,255,255,0.7);">MENCUKUPI / ADEQUATE</span></div>
-  <div class="legend-item"><div class="legend-dot" style="background:#7ED8FF;"></div><span style="color:rgba(255,255,255,0.7);">BAIK / GOOD</span></div>
+  <div class="legend-item"><div class="ldot" style="background:#FF9999"></div>Critical</div>
+  <div class="legend-item"><div class="ldot" style="background:#FFB96A"></div>Low</div>
+  <div class="legend-item"><div class="ldot" style="background:#6DFFB0"></div>Adequate</div>
+  <div class="legend-item"><div class="ldot" style="background:#7ED8FF"></div>Good</div>
 </div>
 
-<!-- HOURS -->
-<div class="hours-box">
-  <div class="hours-title">⏰ Waktu Menderma / Donation Time</div>
+<hr class="divider">
 
-  <div class="hours-block">
-    <div class="hours-session">Sesi 1</div>
-    <div class="hours-time">8:00 AM – 11:30 AM</div>
-    <div class="hours-session" style="margin-top:6px;">Sesi 2</div>
-    <div class="hours-time">1:30 PM – 4:00 PM</div>
+<div class="section-title">⏰ Donation Hours</div>
+<div class="hours-grid">
+  <div class="hours-card">
+    <div class="session-label">Session 1</div>
+    <div class="session-time">8:00 AM<br>– 11:30 AM</div>
   </div>
-
-  <div class="hours-block">
-    <div class="hours-session">Hari Buka / Open Days</div>
-    <div class="hours-days">
-      ✅ Isnin – Khamis / Mon – Thu<br>
-      ✅ Sabtu / Saturday<br>
-      <span>❌ Jumaat / Friday</span><br>
-      <span>❌ Ahad / Sunday</span><br>
-      <span>❌ Cuti Umum / Public Holiday</span>
-    </div>
+  <div class="hours-card">
+    <div class="session-label">Session 2</div>
+    <div class="session-time">1:30 PM<br>– 4:00 PM</div>
   </div>
+</div>
 
-  <div class="bloodkad-note">
-    📱 <div><strong>Tempah temujanji anda melalui aplikasi BLOODKAD!</strong><br>
-    Book your appointment via the BLOODKAD app · <em>Available on iOS &amp; Android</em></div>
+<div class="days-card">
+  <div class="day-line">✅ Monday – Thursday</div>
+  <div class="day-line">✅ Saturday</div>
+  <div class="day-line closed">❌ Friday — Closed</div>
+  <div class="day-line closed">❌ Sunday — Closed</div>
+  <div class="day-line closed">❌ Public Holidays — Closed</div>
+</div>
+
+<div class="bloodkad-banner">
+  <div class="bk-icon">📱</div>
+  <div class="bk-text">
+    <strong>Book via the BLOODKAD App!</strong>
+    Schedule your donation appointment easily — available on iOS &amp; Android.
   </div>
 </div>
 ```
 
-  </div><!-- /body -->
-
-  <!-- FOOTER -->
-
-  <div class="footer">
-    <div class="footer-contact">
-      <div class="footer-item">
-        <span class="footer-icon">📸</span>
-        <span>bloodbank_ripas</span>
-      </div>
-      <div class="footer-item">
-        <span class="footer-icon">💬</span>
-        <span>7440267 / 7440277 <em style="font-weight:300;font-size:11px;">(office hours)</em></span>
-      </div>
-    </div>
-    <div class="footer-cta">💉 Derma Darah · Selamatkan Nyawa</div>
   </div>
 
-</div><!-- /poster -->
+  <div class="footer">
+    <div class="footer-contacts">
+      <div class="footer-item">📸 bloodbank_ripas</div>
+      <div class="footer-item">💬 7440267 / 7440277</div>
+    </div>
+    <div class="footer-cta">Donate Blood · Save Lives</div>
+  </div>
 
-<!-- INSTRUCTIONS -->
+</div>
 
 <div class="instructions">
-  <h2>✏️ How to Edit This Poster</h2>
+  <h2>✏️ How to Edit</h2>
   <ul>
-    <li><strong>Change blood status:</strong> Click any coloured pill (e.g. KRITIKAL) to cycle through → LOW → ADEQUATE → GOOD → CRITICAL.</li>
-    <li><strong>Edit the date:</strong> Click the date text in the gold banner at the top right.</li>
-    <li><strong>Print / Save as image:</strong> Use your browser's <kbd>Ctrl+P</kbd> / <kbd>⌘+P</kbd> and choose "Save as PDF", or take a screenshot of the poster at 1080×1080px.</li>
-    <li><strong>Tip:</strong> For best results, zoom browser to 100% before screenshotting.</li>
+    <li><strong>Change status:</strong> Tap any coloured pill to cycle Critical → Low → Adequate → Good.</li>
+    <li><strong>Edit date:</strong> Tap the date in the gold bar to type.</li>
+    <li><strong>Save:</strong> Screenshot the poster, or on desktop <kbd>Ctrl+P</kbd> → Save as PDF.</li>
   </ul>
 </div>
 
 <script>
-  const GROUPS = ['A', 'B', 'AB', 'O'];
-  const COLORS = ['#E83A3A','#E87A3A','#E8B84B','#3ABDE8'];
+  const GROUPS = ['A','B','AB','O'];
+  const BARS = ['#E83A3A','#E87A3A','#E8B84B','#3ABDE8'];
   const STATUSES = ['CRITICAL','LOW','ADEQUATE','GOOD'];
-  const LABELS = {
-    CRITICAL: 'KRITIKAL',
-    LOW:      'RENDAH',
-    ADEQUATE: 'MENCUKUPI',
-    GOOD:     'BAIK'
+  const LABELS = { CRITICAL:'Critical', LOW:'Low', ADEQUATE:'Adequate', GOOD:'Good' };
+
+  const stock = {
+    A:  { pos:'ADEQUATE', neg:'LOW' },
+    B:  { pos:'GOOD',     neg:'ADEQUATE' },
+    AB: { pos:'LOW',      neg:'CRITICAL' },
+    O:  { pos:'CRITICAL', neg:'LOW' },
   };
 
-  // Default stock state – edit here or click pills on poster
-  const stockData = {
-    A:  { pos: 'ADEQUATE', neg: 'LOW' },
-    B:  { pos: 'GOOD',     neg: 'ADEQUATE' },
-    AB: { pos: 'LOW',      neg: 'CRITICAL' },
-    O:  { pos: 'CRITICAL', neg: 'LOW' },
-  };
+  const next = s => STATUSES[(STATUSES.indexOf(s)+1) % STATUSES.length];
 
-  function cycleStatus(current) {
-    const i = STATUSES.indexOf(current);
-    return STATUSES[(i + 1) % STATUSES.length];
+  function makePill(g, sign) {
+    const key = sign === '+' ? 'pos' : 'neg';
+    const el = document.createElement('div');
+    el.className = `pill ${stock[g][key]}`;
+    el.innerHTML = `<div class="pill-dot"></div>${LABELS[stock[g][key]]}`;
+    el.addEventListener('click', () => { stock[g][key] = next(stock[g][key]); render(); });
+    return el;
   }
 
-  function makePill(group, rh) {
-    const key = rh === '+' ? 'pos' : 'neg';
-    const status = stockData[group][key];
-    const pill = document.createElement('div');
-    pill.className = `status-pill ${status}`;
-    pill.innerHTML = `<div class="dot"></div>${LABELS[status]}`;
-    pill.title = 'Click to change status';
-    pill.addEventListener('click', () => {
-      stockData[group][key] = cycleStatus(stockData[group][key]);
-      renderGrid();
-    });
-    return pill;
-  }
-
-  function renderGrid() {
+  function render() {
     const grid = document.getElementById('bloodGrid');
     grid.innerHTML = '';
-    GROUPS.forEach((g, idx) => {
+    GROUPS.forEach((g, i) => {
       const card = document.createElement('div');
       card.className = 'blood-card';
-      card.style.setProperty('--bar-color', COLORS[idx]);
+      card.style.setProperty('--bar', BARS[i]);
 
-      const label = document.createElement('div');
-      label.className = 'blood-type-label';
-      label.textContent = g;
-      card.appendChild(label);
+      const lbl = document.createElement('div');
+      lbl.className = 'blood-type-label';
+      lbl.textContent = g;
+      card.appendChild(lbl);
 
-      ['+', '−'].forEach(rh => {
+      ['+','−'].forEach(sign => {
         const row = document.createElement('div');
         row.className = 'rh-row';
-        row.style.background = 'rgba(255,255,255,0.04)';
-
         const rl = document.createElement('div');
         rl.className = 'rh-label';
-        rl.textContent = g + rh;
+        rl.textContent = g + sign;
         row.appendChild(rl);
-
-        const key = rh === '+' ? 'pos' : 'neg';
-        const pill = makePill(g, rh);
-        row.appendChild(pill);
-
+        row.appendChild(makePill(g, sign));
         card.appendChild(row);
       });
-
       grid.appendChild(card);
     });
   }
 
-  renderGrid();
+  render();
 </script>
 
 </body>
