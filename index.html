@@ -15,24 +15,20 @@ body {
   font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* FORMAT BUTTONS */
+/* BUTTONS */
 .format-bar {
   display: flex;
   gap: 8px;
   margin-bottom: 16px;
-  justify-content: center;
-  flex-wrap: wrap;
 }
 
 .fmt-btn {
   padding: 8px 20px;
-  font-size: 14px;
-  font-weight: 600;
   border-radius: 20px;
   border: 2px solid #555;
-  cursor: pointer;
   background: #222;
   color: #fff;
+  cursor: pointer;
 }
 
 .fmt-btn.active {
@@ -40,193 +36,161 @@ body {
   border-color: #B71C1C;
 }
 
-/* ✅ RESPONSIVE POSTER */
+/* POSTER */
 .poster {
-  background: #1a0a0a;
-  color: #fff;
-  overflow: hidden;
-  border-radius: 16px;
   width: 100%;
   max-width: 420px;
-  transition: all 0.3s;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #1a0a0a;
+  color: #fff;
 }
 
+/* ✅ FIX PORTRAIT 9:16 */
+.poster.portrait {
+  aspect-ratio: 9 / 16;
+}
+
+/* ✅ FIX SQUARE */
 .poster.square {
   aspect-ratio: 1 / 1;
-  overflow-y: auto;
+}
+
+/* CONTENT SCROLL SAFE */
+.poster-inner {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* HEADER */
-.hdr { border-bottom: 4px solid #FFD700; }
-.hdr-img { width: 100%; display: block; }
-
-/* STATUS BAR */
 .status-bar {
   background: #FFD700;
-  padding: 11px 16px;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
-}
-
-.status-label {
-  font-size: 18px;
   font-weight: 800;
   color: #1a0a0a;
 }
 
-.status-date {
-  font-size: 13px;
-  font-weight: 700;
-  color: #5D0000;
-}
-
-/* BLOOD GRID */
+/* GRID */
 .blood-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 14px;
+  flex: 1;
 }
 
 .blood-card {
   background: #2a1010;
   border-radius: 12px;
-  padding: 14px 12px;
-  border: 1.5px solid #3a1818;
+  padding: 14px;
 }
 
 .blood-letter {
-  font-size: 44px;
+  font-size: 42px;
   font-weight: 900;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
 .sub-row {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 7px;
+  margin-bottom: 6px;
 }
 
-.sub-type {
-  font-size: 17px;
-  font-weight: 700;
-  color: #ddd;
-}
+.sub-type { font-weight: 700; }
 
 .badge {
-  font-size: 12px;
-  font-weight: 800;
-  padding: 5px 11px;
+  font-size: 11px;
+  padding: 4px 10px;
   border-radius: 20px;
-  text-transform: uppercase;
+  font-weight: 800;
 }
 
-.badge.critical { background: #B71C1C; color:#fff; }
-.badge.low { background: #E65100; color:#fff; }
-.badge.adequate { background: #4E342E; color:#FFCCBC; }
-.badge.good { background: #1B5E20; color:#C8E6C9; }
+.critical { background:#B71C1C; }
+.low { background:#E65100; }
+.adequate { background:#4E342E; }
+.good { background:#1B5E20; }
 
 /* LEGEND */
 .legend {
   display: flex;
-  gap: 14px;
   justify-content: center;
-  flex-wrap: wrap;
-  padding: 4px 14px 12px;
-}
-
-.leg-item {
-  display: flex;
-  gap: 5px;
-  font-size: 13px;
-  color: #ccc;
+  gap: 12px;
+  font-size: 12px;
+  padding-bottom: 10px;
 }
 
 .dot {
-  width: 11px;
-  height: 11px;
-  border-radius: 50%;
-}
-
-.dot.critical { background: #EF5350; }
-.dot.low { background: #FF7043; }
-.dot.adequate { background: #8D6E63; }
-.dot.good { background: #66BB6A; }
-
-.divider {
-  border-top: 1.5px solid #3a1818;
-  margin: 0 14px;
+  width:10px;height:10px;border-radius:50%;
+  display:inline-block;margin-right:4px;
 }
 
 /* HOURS */
-.hours-section { padding: 12px 14px; }
-
-.sec-title {
-  font-size: 16px;
-  font-weight: 800;
-  color: #FFD700;
-  margin-bottom: 10px;
-}
-
+.hours { padding: 10px 14px; }
 .sessions {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:8px;
 }
-
-.session-card {
-  background: #2a1010;
-  border-radius: 10px;
-  padding: 10px;
-  text-align: center;
-}
-
-.sess-time {
-  font-size: 15px;
-  font-weight: 800;
-  color: #FFD700;
+.session {
+  background:#2a1010;
+  text-align:center;
+  padding:10px;
+  border-radius:10px;
+  color:#FFD700;
+  font-weight:800;
 }
 
 /* APP */
-.app-section {
-  margin: 0 14px 12px;
-  background: #2a1010;
-  border-radius: 10px;
-  padding: 12px;
-  border: 1px solid #FFD700;
+.app {
+  margin:10px 14px;
+  padding:12px;
+  border:1px solid #FFD700;
+  border-radius:10px;
 }
 
 /* FOOTER */
 .footer {
-  background: #B71C1C;
-  padding: 13px 16px;
-  display: flex;
-  justify-content: space-between;
+  background:#B71C1C;
+  padding:12px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:12px;
 }
 
-.footer-slogan {
-  font-size: 14px;
-  font-weight: 800;
-  color: #FFD700;
+/* IG */
+.ig {
+  display:flex;
+  align-items:center;
+  gap:6px;
+}
+
+.ig svg {
+  width:18px;
+  height:18px;
+  fill:#FFD700;
+}
+
+/* FIX TEXT WRAP */
+.footer-left {
+  display:flex;
+  flex-direction:column;
+}
+
+.footer-right {
+  text-align:right;
+  color:#FFD700;
+  font-weight:800;
 }
 
 /* MOBILE */
-@media (max-width: 480px) {
-  body { padding: 10px; }
-  .blood-letter { font-size: 36px; }
-  .sub-type { font-size: 15px; }
-  .status-label { font-size: 16px; }
-}
-
-/* TABLET */
-@media (min-width: 481px) and (max-width: 768px) {
-  .poster { max-width: 500px; }
-}
-
-/* LARGE */
-@media (min-width: 769px) {
-  .poster { max-width: 600px; }
+@media (max-width:480px){
+  .blood-letter { font-size:34px; }
 }
 </style>
 </head>
@@ -239,57 +203,84 @@ body {
 </div>
 
 <div class="poster portrait" id="poster">
+<div class="poster-inner">
 
-  <div class="hdr">
-    <!-- keep your original image here -->
-    <img class="hdr-img" src="">
+<!-- HEADER -->
+<div class="status-bar">
+  <div>Blood Status</div>
+  <div>Updated Today</div>
+</div>
+
+<!-- ✅ ALL BLOOD TYPES RESTORED -->
+<div class="blood-grid">
+  <div class="blood-card">
+    <div class="blood-letter">A</div>
+    <div class="sub-row"><div>A+</div><div class="badge low">LOW</div></div>
+    <div class="sub-row"><div>A-</div><div class="badge critical">CRITICAL</div></div>
   </div>
 
-  <div class="status-bar">
-    <div class="status-label">Blood Status</div>
-    <div class="status-date">Updated Today</div>
+  <div class="blood-card">
+    <div class="blood-letter">B</div>
+    <div class="sub-row"><div>B+</div><div class="badge adequate">ADEQUATE</div></div>
+    <div class="sub-row"><div>B-</div><div class="badge low">LOW</div></div>
   </div>
 
-  <div class="blood-grid">
-    <div class="blood-card">
-      <div class="blood-letter">A</div>
-      <div class="sub-row"><div class="sub-type">A+</div><div class="badge low">Low</div></div>
-      <div class="sub-row"><div class="sub-type">A-</div><div class="badge critical">Critical</div></div>
+  <div class="blood-card">
+    <div class="blood-letter">O</div>
+    <div class="sub-row"><div>O+</div><div class="badge good">GOOD</div></div>
+    <div class="sub-row"><div>O-</div><div class="badge critical">CRITICAL</div></div>
+  </div>
+
+  <div class="blood-card">
+    <div class="blood-letter">AB</div>
+    <div class="sub-row"><div>AB+</div><div class="badge adequate">ADEQUATE</div></div>
+    <div class="sub-row"><div>AB-</div><div class="badge low">LOW</div></div>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <span><span class="dot" style="background:#EF5350"></span>Critical</span>
+  <span><span class="dot" style="background:#FF7043"></span>Low</span>
+  <span><span class="dot" style="background:#8D6E63"></span>Adequate</span>
+  <span><span class="dot" style="background:#66BB6A"></span>Good</span>
+</div>
+
+<hr style="border:1px solid #3a1818; margin:0 14px;">
+
+<!-- HOURS -->
+<div class="hours">
+  <div style="color:#FFD700;font-weight:800;margin-bottom:8px;">Opening Hours</div>
+  <div class="sessions">
+    <div class="session">8AM - 12PM</div>
+    <div class="session">2PM - 5PM</div>
+  </div>
+</div>
+
+<!-- APP -->
+<div class="app">Book via Bloodkad App</div>
+
+<!-- ✅ FIXED FOOTER -->
+<div class="footer">
+
+  <div class="footer-left">
+    <div class="ig">
+      <!-- REAL IG ICON -->
+      <svg viewBox="0 0 24 24">
+        <path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 5a5 5 0 110 10 5 5 0 010-10zm6.5-1.3a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z"/>
+      </svg>
+      bloodbank_ripas
     </div>
-
-    <div class="blood-card">
-      <div class="blood-letter">B</div>
-      <div class="sub-row"><div class="sub-type">B+</div><div class="badge adequate">Adequate</div></div>
-      <div class="sub-row"><div class="sub-type">B-</div><div class="badge low">Low</div></div>
-    </div>
+    <div>7440267 / 7440277</div>
   </div>
 
-  <div class="legend">
-    <div class="leg-item"><div class="dot critical"></div>Critical</div>
-    <div class="leg-item"><div class="dot low"></div>Low</div>
-    <div class="leg-item"><div class="dot adequate"></div>Adequate</div>
-    <div class="leg-item"><div class="dot good"></div>Good</div>
+  <div class="footer-right">
+    Donate Blood Save Lives
   </div>
 
-  <hr class="divider">
+</div>
 
-  <div class="hours-section">
-    <div class="sec-title">Opening Hours</div>
-    <div class="sessions">
-      <div class="session-card"><div class="sess-time">8AM - 12PM</div></div>
-      <div class="session-card"><div class="sess-time">2PM - 5PM</div></div>
-    </div>
-  </div>
-
-  <div class="app-section">
-    Book via Blood App
-  </div>
-
-  <div class="footer">
-    <div>@bloodbank</div>
-    <div class="footer-slogan">Donate Blood Save Lives</div>
-  </div>
-
+</div>
 </div>
 
 <script>
@@ -297,8 +288,7 @@ function setFmt(type, btn){
   document.querySelectorAll('.fmt-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
   const poster = document.getElementById('poster');
-  poster.classList.remove('portrait','square');
-  poster.classList.add(type);
+  poster.className = 'poster ' + type;
 }
 </script>
 
