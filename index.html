@@ -294,11 +294,18 @@ flex-wrap: wrap;
 display: flex;
 align-items: center;
 gap: 6px;
-font-size: clamp(9px,2.8vw,13px);
-color: #fff;
+font-size: clamp(11px,3.4vw,16px);
+color: #ffffff !important;
 font-weight: 800;
 }
-.ig-icon { width: clamp(16px,4.5vw,22px); height: clamp(16px,4.5vw,22px); flex-shrink:0; }
+.contact-item * { color: #ffffff !important; text-decoration: none !important; }
+.contact-office-hrs {
+font-size: clamp(9px,2.6vw,12px);
+font-weight: 700;
+color: rgba(255,255,255,0.8) !important;
+font-style: italic;
+}
+.ig-icon { width: clamp(18px,5vw,24px); height: clamp(18px,5vw,24px); flex-shrink:0; }
 
 /* ── Edit Panel ── */
 .edit-panel {
@@ -460,7 +467,7 @@ cursor: pointer;
       <rect width="48" height="48" rx="12" fill="#25D366"/>
       <path d="M24 8C15.163 8 8 15.163 8 24c0 3.03.832 5.868 2.279 8.3L8 40l7.918-2.23A15.92 15.92 0 0024 40c8.837 0 16-7.163 16-16S32.837 8 24 8zm8.49 22.077c-.357.998-2.088 1.912-2.868 1.948-.78.036-1.547.38-5.212-1.088-4.395-1.766-7.178-6.237-7.395-6.526-.218-.289-1.762-2.343-1.762-4.468s1.116-3.168 1.512-3.601c.396-.433.866-.541 1.155-.541l.832.016c.267.011.625-.101.979.748.357.849 1.21 2.926 1.316 3.14.107.213.178.463.035.748-.143.284-.214.463-.428.71-.213.247-.447.55-.638.74-.214.207-.436.43-.187.845.249.416 1.103 1.82 2.37 2.948 1.628 1.454 3.001 1.903 3.417 2.115.415.213.657.178.9-.107.242-.285 1.04-1.212 1.318-1.629.278-.416.555-.347.935-.213.38.134 2.415 1.138 2.83 1.35.415.213.692.32.793.5.1.18.1 1.042-.257 2.04z" fill="white"/>
     </svg>
-    7440267 / 7440277 <small style="opacity:.7;font-size:.82em;font-weight:700">(office hrs)</small>
+    7440267 / 7440277 <span class="contact-office-hrs">(office hrs)</span>
   </div>
 </div>
 ```
@@ -551,7 +558,9 @@ function applyEdits() {
 
 async function savePoster(mode) {
   const poster = document.getElementById('poster');
-  poster.classList.toggle('square', mode === 'square');
+
+  // Always capture in portrait (full content) — never switch to square aspect ratio
+  poster.classList.remove('square');
   await new Promise(r => setTimeout(r, 420));
 
   const canvas = await html2canvas(poster, {
@@ -560,6 +569,7 @@ async function savePoster(mode) {
 
   let finalCanvas = canvas;
   if (mode === 'square') {
+    // Scale the full portrait poster to fit inside a square canvas — nothing gets cropped
     const size = Math.max(canvas.width, canvas.height);
     finalCanvas = document.createElement('canvas');
     finalCanvas.width = size;
@@ -567,7 +577,10 @@ async function savePoster(mode) {
     const ctx = finalCanvas.getContext('2d');
     ctx.fillStyle = '#8b0000';
     ctx.fillRect(0, 0, size, size);
-    ctx.drawImage(canvas, (size - canvas.width) / 2, (size - canvas.height) / 2);
+    const scale = size / Math.max(canvas.width, canvas.height);
+    const drawW = canvas.width * scale;
+    const drawH = canvas.height * scale;
+    ctx.drawImage(canvas, (size - drawW) / 2, (size - drawH) / 2, drawW, drawH);
   }
 
   const link = document.createElement('a');
